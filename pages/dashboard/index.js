@@ -13,6 +13,7 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos'
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos'
 import CheckIcon from '@mui/icons-material/Check'
 import CircularProgress from '@mui/material/CircularProgress'
+import LogoutIcon from '@mui/icons-material/Logout'
 import { DataGrid } from '@mui/x-data-grid'
 import { userAcc } from '../../store/actions/userAcc'
 
@@ -226,10 +227,19 @@ export default function Dashboard(){
       alert(err.response.data.message)
     })
   }
+
+  const logout = () => {
+    localStorage.removeItem('session')
+    localStorage.removeItem('email')
+    router.push('/')
+  }
   return(
     <div style={{ height: 400, width: '100%' }}>
       <Button variant="contained" startIcon={<AddIcon />} onClick={handleShow} >
         Add
+      </Button>
+      <Button variant="contained" startIcon={<LogoutIcon />} onClick={logout} sx={{  position: 'absolute', right: 10}} color="error" >
+        Log Out
       </Button>
       <DataGrid 
         rows={arrData}
