@@ -72,7 +72,6 @@ const Home = () => {
       setLoading(false)
     })
     .catch((err) => {
-      console.log(err.response)
       setLoading(false)
       setErrorModal(true)
       setErrorMsg(err.response.data.message)

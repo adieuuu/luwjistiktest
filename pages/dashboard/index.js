@@ -157,12 +157,11 @@ export default function Dashboard(){
         }
       })
       .then((res) => {
-        console.log(res)
         setArrData(res.data.data)
         setRefreshData(false)
       })
       .catch((err) => {
-        console.log(err)
+        alert(err.response.data.message)
       })
     }
     else{
@@ -177,12 +176,11 @@ export default function Dashboard(){
         }
       })
       .then((res) => {
-        console.log(res)
         setArrData(res.data.data)
         setRefreshData(false)
       })
       .catch((err) => {
-        console.log(err)
+        alert(err.response.data.message)
       })
     }
   }, [refreshData])
@@ -219,13 +217,11 @@ export default function Dashboard(){
       }
     })
     .then((res) => {
-      console.log(res)
       setShowPickupData(false)
       setRefreshData(true)
       setLoading(false)
     })
     .catch((err) => {
-      console.log(err)
       setLoading(false)
       alert(err.response.data.message)
     })
